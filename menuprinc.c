@@ -13,7 +13,7 @@ struct compte {
 void menu(){
 	int choix;
 	
-	
+	system("cls");
 		printf("\t\t\t\tMenu :  \n \n \n");
 		printf("\t\t\t\t1. Introduire un compte bancaire\n");
 		printf("\t\t\t\t2. Introduire plusieurs comptes bancaires \n");
@@ -31,6 +31,7 @@ void menu(){
 		switch (choix){
 			case 1 : 
 			   introduir();
+			   
 			    break;
 			case 2 :
 			   InPscomte();
@@ -69,11 +70,12 @@ void introduir ()
 	 
 	printf("\t\t\t\t\tCompte ets cree !!\n\n\n");
 	
-	printf("\t\t\t1 .pour retoure la menu  ");
+	printf("\t\t\t 1 .pour retoure la menu  ");
 	printf("2 .pour sortie de programme ");
 			scanf("%d", &chois);
 			
-			system("cls");
+			
+	system("cls");
 			
 	switch(chois){
 		case 1 :
@@ -84,8 +86,8 @@ void introduir ()
 			break;
 		default : 
 		    printf("this page not valid");
-	}
-	
+}system("cls");
+
 }
 
 //*********************************************
@@ -94,24 +96,25 @@ void InPscomte ()
 	struct compte plus;
 	int C /*les nombre de comte*/, i;
 	
-	printf("tapper le nomber des compte : ");
-	 scanf("%d", &C);
+	system("cls");
 	
+	printf("\t\t\ttapper le nomber des compte : ");
+	 scanf("%d", &C);
 	
 	
 	for(i = 1; i <= C; i++)
 	{
-	printf("donner le Nom : ");
+	printf("\t\t\tdonner le Nom : ");
 	 scanf("%s", &plus.nom);
-	printf("donner le Prenom : ");
+	printf("\t\t\tdonner le Prenom : ");
 	 scanf("%s", &plus.prenom);
-	printf("donner CIN : ");
+	printf("\t\t\tdonner CIN : ");
 	 scanf("%s", &plus.cin);
-	printf("donner le Montant : ");
+	printf("\t\t\tdonner le Montant : ");
 	 scanf("%f", &plus.montant);
    }
    
-   printf("les opération reussie \n\n ");
+   printf("\t\t\tles opération reussie \n\n ");
 }
 
  //************************************************
@@ -157,8 +160,28 @@ void InPscomte ()
 }
  
  
+ /*void exist (){
  
+ int chois;
  
+    printf("\t\t\t 1 .pour retoure la menu  ");
+	printf("2 .pour sortie de programme ");
+			scanf("%d", &chois);
+			
+			system("cls");
+			
+	switch(chois){
+		case 1 :
+			menu();
+			break;
+		case 2 :
+			
+			break;
+		default : 
+		    printf("this page not valid");
+	}
+ 
+ }*/
 int main()
 {
 	menu();
