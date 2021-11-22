@@ -1,9 +1,8 @@
-#include<stdio.h>
-#include<windows.h>
 
-struct compte {
-	
-	char nom [20];
+#include<stdio.h>
+
+struct compte {//structure est un assemblage de variables qui peuvent avoir différents types;;
+	char nom [20]; 
 	char prenom [20];
 	char cin [20];
 	float montant [20];
@@ -14,37 +13,40 @@ void menu(){
 	int choix;
 	
 	system("cls");
-		printf("\t\t\t\tMenu :  \n \n \n");
+		printf("\t\t\t\t\tMenu :  \n \n \n");
 		printf("\t\t\t\t1. Introduire un compte bancaire\n");
 		printf("\t\t\t\t2. Introduire plusieurs comptes bancaires \n");
 		printf("\t\t\t\t3. Opérations \n");
 		printf("\t\t\t\t4. Affichage \n"); 
 		printf("\t\t\t\t5. Fidélisation \n");
 		
-		printf("\t\t\t\t0. Quitter \n");
+		printf("\t\t\t\t0. Quitter \n\n\n");
 		
-		printf("\t\t\t\tentre un choix : ");
+		printf("\t\t\t\tentre le choix : ");
 		scanf("%d", &choix);
 		
-		system("cls");
+	system("cls"); //clear screen
 		
 		switch (choix){
 			case 1 : 
 			   introduir();
-			   
+			   exist ();
 			    break;
 			case 2 :
-			   InPscomte();
+			   InPscompte();
+			   exist ();
 				break;
 			case 3 : 
 			    operation();
+			    exist ();
 			    break;
 			case 4 : 
 			    break;
 			case 5 : 
 			    break;
 			default:
-			    printf("le choix n'est pas valide !!!'");
+			    printf("Quitter programme !!!!!");
+			  
 		}
 	
 
@@ -55,9 +57,8 @@ void menu(){
 void introduir ()
 {
 	struct compte seule;
-	int chois;
 	
-	printf("\t\t\t\tIntroduire un compte bancaire \n\n");
+	printf("\t\t\t\tAjouter un seule compte bancaire \n\n");
 	
 	printf("\t\t\t\t\tdonner le Nom : ");
 	 scanf("%s", &seule.nom);
@@ -67,31 +68,15 @@ void introduir ()
 	 scanf("%s", &seule.cin);
 	printf("\t\t\t\t\tdonner le Montant : ");
 	 scanf("%f", &seule.montant);
-	 
-	printf("\t\t\t\t\tCompte ets cree !!\n\n\n");
 	
-	printf("\t\t\t 1 .pour retoure la menu  ");
-	printf("2 .pour sortie de programme ");
-			scanf("%d", &chois);
-			
-			
-	system("cls");
-			
-	switch(chois){
-		case 1 :
-			menu();
-			break;
-		case 2 :
-			
-			break;
-		default : 
-		    printf("this page not valid");
-}system("cls");
+	 
+	printf("\n\t\t\t\t\tCompte est creez !!\n\n\n");
+	
 
 }
 
 //*********************************************
-void InPscomte ()
+void InPscompte ()
 {
 	struct compte plus;
 	int C /*les nombre de comte*/, i;
@@ -115,18 +100,22 @@ void InPscomte ()
    }
    
    printf("\t\t\tles opération reussie \n\n ");
+   
+   
 }
 
+	struct compte opera;
+	
+	int plus, moin, chois;
+	int rest;
  //************************************************
  
  void operation()
 {
-	struct compte opera;
-	
-	int plus, moin, chois;
 	
 	
 	 printf("/**** entre le choix ****/\n\n\n");
+	 
 	 printf("1. deposer \n");
 	 printf("2. retrait \n");
 	  scanf("%d", &chois);
@@ -137,7 +126,8 @@ void InPscomte ()
 	  		
 	  		printf("entre plus :\n");
 	        scanf("%d", &plus);
-	        printf("la esultat : %d %d", opera.montant + plus);
+	        rest == opera.montant + plus;
+	        printf("la resultat : %d  \n", rest);
 	  		break;
 	  		
 	  	case 2 :
@@ -146,21 +136,23 @@ void InPscomte ()
 	        scanf("%d", &moin);
 	        
 	             if (opera.montant >= moin){
-                     printf("la esultat : %d %d", opera.montant - moin);
+                     printf("la esultat : %d %d \n", opera.montant - moin);
 				 }
 	             else{
-	             	 printf("operation imposible !!");
+	             	 printf("operation imposible !! \n");
 				 }
 	                 
 	  		break;
 	  	default :
-	  		printf("exit");
+	  		printf("exit \n");
 	  		
 	  }
+	  
+   
 }
  
  
- /*void exist (){
+ void exist (){
  
  int chois;
  
@@ -181,7 +173,31 @@ void InPscomte ()
 		    printf("this page not valid");
 	}
  
- }*/
+ }
+ 
+ 
+ /*void fichier()
+ {
+    FILE* fiche;
+
+    fiche = fopen(".//fich.txt", "r+");
+    if (fiche != NULL)
+    {
+    	
+    }
+    else
+    {
+        // On affiche un message d'erreur si on veut
+        printf("Impossible d'ouvrir le fichier test.txt");
+    }
+    fprintf("")
+    
+    fclose (fiche);
+}*/
+ 
+ 
+ 
+ 
 int main()
 {
 	menu();
@@ -189,14 +205,5 @@ int main()
 	return 0;
 	
 }
-
-
-
-
-
-
-
-
-
 
 
