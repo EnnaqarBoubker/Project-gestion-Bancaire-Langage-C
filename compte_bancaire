@@ -1,0 +1,322 @@
+#include<stdio.h>
+
+struct compte {
+	char nom [20]; 
+	char prenom [20];
+	char cin [20];
+	float montant;
+};
+
+struct compte search[1000];
+int nbrClt = 0;
+
+
+//#############################################
+
+void ajouter()
+{
+	system("cls");  //clears the output screen
+	
+	printf("\t\t\t\tAjouter un seule compte bancaire \n\n");
+	
+	printf("\t\t\t\t\tdonner le Nom.........: ");
+	 scanf("%s", search[nbrClt].nom );
+	printf("\t\t\t\t\tdonner le Prenom......: ");
+	 scanf("%s", search[nbrClt].prenom);
+	printf("\t\t\t\t\tdonner CIN............: ");
+	 scanf("%s", search[nbrClt].cin);
+	printf("\t\t\t\t\tdonner le Montant.....: ");
+	 scanf("%f", &search[nbrClt].montant);
+	
+	printf("\t\t\t\tNom : %s | Prenom : %s | CIN : %s | Montant : %f",search[nbrClt].nom, search[nbrClt].prenom, search[nbrClt].cin, search[nbrClt].montant );
+	 
+	printf("\n\t\t\t\t\tCompte est creez !!\n\n\n");
+	
+   nbrClt++;
+}
+
+//#############################################
+
+
+void InPscompte()
+{
+	int C /*les nombre de comte*/, i;
+	
+	system("cls");
+	
+	printf("\t\t\ttapper le nomber des compte : ");
+	 scanf("%d", &C);
+	
+	
+	for(i = 0; i < C; i++)
+	{
+	printf("\t\t\t\t\tdonner le Nom : ");
+	 scanf("%s", search[nbrClt].nom );
+	printf("\t\t\t\t\tdonner le Prenom : ");
+	 scanf("%s", search[nbrClt].prenom);
+	printf("\t\t\t\t\tdonner CIN : ");
+	 scanf("%s", search[nbrClt].cin);
+	printf("\t\t\t\t\tdonner le Montant : ");
+	 scanf("%f", &search[nbrClt].montant);
+	
+	printf("\t\t\t\t\tNom : %s | Prenom : %s | CIN : %s | Montant : %f \n",search[nbrClt].nom, search[nbrClt].prenom, search[nbrClt].cin, search[nbrClt].montant );
+	
+	 nbrClt++;
+   }
+   
+   printf("\t\t\tles opération reussie \n\n ");
+   
+   
+}
+
+//#############################################
+
+void operations()
+{
+	int choix;
+	char rech [10];
+	int i;
+	float DR;
+	
+	printf("donner moi la CIN ");
+	 scanf("%s", rech);
+	 
+	    for (i = 0; i < nbrClt ; i++){
+		
+	     	if ( strcmp (rech, search[i].cin) == 0)
+			  {
+		
+	        	printf("afficher compte : %s \t %s \t %s \t %f\n", search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+	     	
+	     		printf("donner le choix:\n ");
+				printf("1. Depos\n");
+				printf("2. Retrait\n");
+				scanf("%d", &choix);
+	     		printf("donner un montant: ");
+				scanf("%f", &DR);
+			
+				switch(choix)
+				{
+					case 1 :
+				
+					    search[i].montant += DR;
+				   		printf("la nouvelle montant est : %.2f\n", search[i].montant);
+				    	break;
+				    	
+			   		 case 2 :
+			   		 	
+			    		if (search[i].montant >= DR){
+				
+			    	   		 search[i].montant -= DR;
+			    	   		 printf("la nouvelle montant est : %.2f\n", search[i].montant);	
+						}
+					    else{
+					
+				         	printf("l operation null,Le montant est supérieur\n ");
+			    			break;
+			    	}
+			    	
+		    	}
+
+    	   }
+			
+        }
+}	
+
+void parNom()
+{
+	    struct compte v;
+        int i , k ;
+        
+        for(i = 0 ; i < nbrClt ; i++){
+        	
+            for(k = 0 ; k < nbrClt - i - 1 ; k++){
+            	
+                if(strcmp (search[k].nom > search[k+1].nom) > 0){
+                	
+                    v=search[k];
+                    search[k]=search[k+1];
+                    search[k+1]=v;
+
+                }
+
+            }
+        }
+        
+        for(i=0; i < nbrClt ;i++){
+            printf("l'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+        }
+    }
+
+
+
+
+void acs()
+{
+        struct compte v;
+        int i , k ;
+        
+        for(i = 0 ; i < nbrClt ; i++){
+        	
+            for(k = 0 ; k < nbrClt - i - 1 ; k++){
+            	
+                if(search[k].montant > search[k+1].montant){
+                	
+                    v=search[k];
+                    search[k]=search[k+1];
+                    search[k+1]=v;
+
+                }
+
+            }
+        }
+        
+        for(i=0; i < nbrClt ;i++){
+            printf("l'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+        }
+    }
+    
+void des()
+{
+        struct compte v;
+        int i , k ;
+        
+        for(i = 0 ; i < nbrClt  ; i++){
+        	
+            for(k = 0 ; k < nbrClt - i - 1 ; k++){
+            	
+                if(search[k].montant < search[k+1].montant){
+                	
+                    v=search[k];
+                    search[k]=search[k+1];
+                    search[k+1]=v;
+
+                }
+
+            }
+        }
+        for(i=0; i < nbrClt ;i++){
+            printf("l'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+        }
+    }
+    
+    void queen()
+{
+	char rech [10];
+	int i;
+	
+	
+	printf("donner moi la CIN ");
+	 scanf("%s", rech);
+	 
+	    for (i = 0; i < nbrClt ; i++){
+		
+	     	if ( strcmp (rech, search[i].cin) == 0)
+			  {
+		
+	        	printf("afficher compte : %s \t %s \t %s \t %f\n", search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+	        	
+			 }	 
+		}		 
+}
+	
+//############################################# Pour return de la menu;
+
+ 
+  void exist(){
+ 
+ int choiX;
+ 
+    printf("\t\t\t 1 .pour retoure la menu  ");
+	printf("2 .pour sortie de programme ");
+			scanf("%d", &choiX);
+			
+			system("cls");//CLEAR
+			
+	switch(choiX){
+		case 1 :
+		    main();
+			break;
+			
+		default : 
+		    printf("this page not valid");
+	}
+ 
+ }
+ 
+ //#############################################  Menu principal 
+ 
+ void menu(){
+	int choix, i, chois;
+	
+	    printf("\t\t\t\t#####################################\n");
+	    printf("\t\t\t\t######## App Compte Bancaire ########\n");
+	    printf("\t\t\t\t#####################################\n\n");
+	
+		printf("\t\t\t\t\t\t Menu  \n\n\n");
+		printf("\t\t\t\t1. Introduire un compte bancaire.............\n");
+		printf("\t\t\t\t2. Introduire plusieurs comptes bancaires.... \n");
+		printf("\t\t\t\t3. Operations................................ \n");
+		printf("\t\t\t\t4. Affichage................................. \n"); 
+		printf("\t\t\t\t5. Fidelisation.............................. \n");
+		
+		printf("\t\t\t\t0. Quitter................................... \n\n\n");
+		
+		printf("\t\t\t\tentre le choix : ");
+		scanf("%d", &choix);
+		
+	system("cls"); //clear screen
+		
+		switch(choix){
+			case 1 :
+				ajouter();
+				exist();
+				break;
+			case 2 :
+				InPscompte();
+		        exist();
+				break;
+			case 3 :
+				operations();		
+				exist();
+			case 4 :
+			    printf("donner votre choix :\n");
+				printf("1 . Order par ascendant \n");
+				printf("2 . Order par descendant \n");
+				printf("3 . Recherche par CIN \n");
+				printf("4 . Recherche par CIN \n");
+	 			 scanf("%d", &chois);
+	 			 
+	 			 switch (chois){
+ 			 	case 1 :
+	 			 		acs();
+						break;
+	 			case 2 :
+	 			 		des();
+	 			 		break;
+	 			case 3 :
+	 				   queen();
+	 				   break;
+	 			case 4 :
+	 				   parNom();
+	 				   break;
+	 			
+				  }
+			    exist();
+			default :
+				printf("sortire");
+		}
+	
+}
+ 
+ 
+ 
+
+ 
+ int main()
+{ 
+	menu();
+	
+	return 0;
+	
+}
