@@ -19,16 +19,16 @@ void ajouter()
 	
 	printf("\t\t\t\tAjouter un seule compte bancaire \n\n");
 	
-	printf("\t\t\t\t\tdonner le Nom.........: ");
+	printf("\n\t\t\t\t\tdonner le Nom.........: ");
 	 scanf("%s", search[nbrClt].nom );
-	printf("\t\t\t\t\tdonner le Prenom......: ");
+	printf("\n\t\t\t\t\tdonner le Prenom......: ");
 	 scanf("%s", search[nbrClt].prenom);
-	printf("\t\t\t\t\tdonner CIN............: ");
+	printf("\n\t\t\t\t\tdonner CIN............: ");
 	 scanf("%s", search[nbrClt].cin);
-	printf("\t\t\t\t\tdonner le Montant.....: ");
+	printf("\n\t\t\t\t\tdonner le Montant.....: ");
 	 scanf("%f", &search[nbrClt].montant);
 	
-	printf("\t\t\t\tNom : %s | Prenom : %s | CIN : %s | Montant : %f",search[nbrClt].nom, search[nbrClt].prenom, search[nbrClt].cin, search[nbrClt].montant );
+	printf("\n\t\t\t\tNom : %s | Prenom : %s | CIN : %s | Montant : %f\n",search[nbrClt].nom, search[nbrClt].prenom, search[nbrClt].cin, search[nbrClt].montant );
 	 
 	printf("\n\t\t\t\t\tCompte est creez !!\n\n\n");
 	
@@ -44,27 +44,28 @@ void InPscompte()
 	
 	system("cls");
 	
+	printf("\n\n\t\t\t\tAjouter plusieur Compte\n\n");
 	printf("\t\t\ttapper le nomber des compte : ");
 	 scanf("%d", &C);
 	
 	
 	for(i = 0; i < C; i++)
-	{
-	printf("\t\t\t\t\tdonner le Nom : ");
-	 scanf("%s", search[nbrClt].nom );
-	printf("\t\t\t\t\tdonner le Prenom : ");
-	 scanf("%s", search[nbrClt].prenom);
-	printf("\t\t\t\t\tdonner CIN : ");
-	 scanf("%s", search[nbrClt].cin);
-	printf("\t\t\t\t\tdonner le Montant : ");
-	 scanf("%f", &search[nbrClt].montant);
+    	{
+    	printf("\n\t\t\t\t\tdonner le Nom.........: ");
+		 scanf("%s", search[nbrClt].nom );
+		printf("\n\t\t\t\t\tdonner le Prenom......: ");
+		 scanf("%s", search[nbrClt].prenom);
+		printf("\n\t\t\t\t\tdonner CIN............: ");
+		 scanf("%s", search[nbrClt].cin);
+		printf("\n\t\t\t\t\tdonner le Montant.....: ");
+		 scanf("%f", &search[nbrClt].montant);
 	
-	printf("\t\t\t\t\tNom : %s | Prenom : %s | CIN : %s | Montant : %f \n",search[nbrClt].nom, search[nbrClt].prenom, search[nbrClt].cin, search[nbrClt].montant );
+		printf("\n\t\t\t\t\tNom : %s | Prenom : %s | CIN : %s | Montant : %f \n",search[nbrClt].nom, search[nbrClt].prenom, search[nbrClt].cin, search[nbrClt].montant );
 	
-	 nbrClt++;
-   }
+		 nbrClt++;
+       }
    
-   printf("\t\t\tles opération reussie \n\n ");
+   printf("\n\t\t\t\t\tles opération reussie \n\n ");
    
    
 }
@@ -78,7 +79,7 @@ void operations()
 	int i;
 	float DR;
 	
-	printf("donner moi la CIN ");
+	printf("donner moi votre CIN ");
 	 scanf("%s", rech);
 	 
 	    for (i = 0; i < nbrClt ; i++){
@@ -86,13 +87,13 @@ void operations()
 	     	if ( strcmp (rech, search[i].cin) == 0)
 			  {
 		
-	        	printf("afficher compte : %s \t %s \t %s \t %f\n", search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+	        	printf("\n\t\t\t\tAfficher compte : %s \t %s \t %s \t %f\n\n", search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
 	     	
-	     		printf("donner le choix:\n ");
-				printf("1. Depos\n");
-				printf("2. Retrait\n");
+	     		printf("\t\t\t\tdonner le choix:\n\n ");
+				printf("\t\t\t\t1. Depos\n");
+				printf("\t\t\t\t2. Retrait\n\t\t\t\t\t");
 				scanf("%d", &choix);
-	     		printf("donner un montant: ");
+	     		printf("\t\t\t\tDonner un montant: \t");
 				scanf("%f", &DR);
 			
 				switch(choix)
@@ -100,7 +101,7 @@ void operations()
 					case 1 :
 				
 					    search[i].montant += DR;
-				   		printf("la nouvelle montant est : %.2f\n", search[i].montant);
+				   		printf("\n\n\t\t\t\tla nouvelle montant est : %.2f\n\n\n", search[i].montant);
 				    	break;
 				    	
 			   		 case 2 :
@@ -108,11 +109,11 @@ void operations()
 			    		if (search[i].montant >= DR){
 				
 			    	   		 search[i].montant -= DR;
-			    	   		 printf("la nouvelle montant est : %.2f\n", search[i].montant);	
+			    	   		 printf("\t\t\t\tla nouvelle montant est : %.2f\n", search[i].montant);	
 						}
 					    else{
 					
-				         	printf("l operation null,Le montant est supérieur\n ");
+				         	printf("\t\t\t\tl operation null,Le montant est supérieur\n ");
 			    			break;
 			    	}
 			    	
@@ -123,30 +124,30 @@ void operations()
         }
 }	
 
-void parNom()
-{
-	    struct compte v;
-        int i , k ;
-        
-        for(i = 0 ; i < nbrClt ; i++){
-        	
-            for(k = 0 ; k < nbrClt - i - 1 ; k++){
-            	
-                if(strcmp (search[k].nom > search[k+1].nom) > 0){
-                	
-                    v=search[k];
-                    search[k]=search[k+1];
-                    search[k+1]=v;
-
-                }
-
-            }
-        }
-        
-        for(i=0; i < nbrClt ;i++){
-            printf("l'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
-        }
-    }
+//void parNom()
+//{
+//	    struct compte v;
+//        int i , k ;
+//        
+//        for(i = 0 ; i < nbrClt ; i++){
+//        	
+//            for(k = 0 ; k < nbrClt - i - 1 ; k++){
+//            	
+//                if(strcmp (search[k].nom > search[k+1].nom) > 0){
+//                	
+//                    v=search[k];
+//                    search[k]=search[k+1];
+//                    search[k+1]=v;
+//
+//                }
+//
+//            }
+//        }
+//        
+//        for(i=0; i < nbrClt ;i++){
+//            printf("l'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+//        }
+//    }
 
 
 
@@ -156,47 +157,46 @@ void acs()
         struct compte v;
         int i , k ;
         
-        for(i = 0 ; i < nbrClt ; i++){
-        	
-            for(k = 0 ; k < nbrClt - i - 1 ; k++){
-            	
-                if(search[k].montant > search[k+1].montant){
-                	
-                    v=search[k];
-                    search[k]=search[k+1];
-                    search[k+1]=v;
+        	for(i = 0;i <nbrClt; i++)
+	       {
+		         for(k = i+1; k < nbrClt; k++)
+	         	{
+	         		if(search[i].montant > search[k].montant)
+	     	    	{
+		     	    	v = search[i];
+		    	    	search[i] = search[k];
+		    	     	search[k] = v;
+		        	}
+		       }
+        	}	
+	
 
-                }
-
-            }
-        }
-        
-        for(i=0; i < nbrClt ;i++){
+	for(i=0; i < nbrClt ;i++){
             printf("l'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
         }
     }
     
 void des()
 {
-        struct compte v;
+             struct compte v;
         int i , k ;
         
-        for(i = 0 ; i < nbrClt  ; i++){
-        	
-            for(k = 0 ; k < nbrClt - i - 1 ; k++){
-            	
-                if(search[k].montant < search[k+1].montant){
-                	
-                    v=search[k];
-                    search[k]=search[k+1];
-                    search[k+1]=v;
+        	for(i = 0; i < nbrClt; i++)
+	       {
+		         for(k = i+1; k < nbrClt; k++)
+	         	{
+	         		if(search[i].montant < search[k].montant)
+	     	    	{
+		     	    	v = search[i];
+		    	    	search[i] = search[k];
+		    	     	search[k] = v;
+		        	}
+		       }
+        	}	
+	
 
-                }
-
-            }
-        }
-        for(i=0; i < nbrClt ;i++){
-            printf("l'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+	for(i=0; i < nbrClt ;i++){
+            printf("\t\t\t\tl'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
         }
     }
     
@@ -206,7 +206,7 @@ void des()
 	int i;
 	
 	
-	printf("donner moi la CIN ");
+	printf("\t\t\t\tdonner moi la CIN ");
 	 scanf("%s", rech);
 	 
 	    for (i = 0; i < nbrClt ; i++){
@@ -214,7 +214,7 @@ void des()
 	     	if ( strcmp (rech, search[i].cin) == 0)
 			  {
 		
-	        	printf("afficher compte : %s \t %s \t %s \t %f\n", search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+	        	printf("\t\t\t\tafficher compte : %s \t %s \t %s \t %f\n", search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
 	        	
 			 }	 
 		}		 
@@ -239,7 +239,7 @@ void des()
 			break;
 			
 		default : 
-		    printf("this page not valid");
+		    printf("\t\t\t\tthis page not valid");
 	}
  
  }
@@ -249,18 +249,18 @@ void des()
  void menu(){
 	int choix, i, chois;
 	
-	    printf("\t\t\t\t#####################################\n");
-	    printf("\t\t\t\t######## App Compte Bancaire ########\n");
-	    printf("\t\t\t\t#####################################\n\n");
+	    printf("\t\t\t\t\t#######################################\n");
+	    printf("\t\t\t\t\t######### App Compte Bancaire #########\n");
+	    printf("\t\t\t\t\t#######################################\n\n");
 	
-		printf("\t\t\t\t\t\t Menu  \n\n\n");
-		printf("\t\t\t\t1. Introduire un compte bancaire.............\n");
-		printf("\t\t\t\t2. Introduire plusieurs comptes bancaires.... \n");
-		printf("\t\t\t\t3. Operations................................ \n");
-		printf("\t\t\t\t4. Affichage................................. \n"); 
-		printf("\t\t\t\t5. Fidelisation.............................. \n");
+		printf("\t\t\t\t\t\t\t*** Menu ***  \n\n\n");
+		printf("\t\t\t\t1. Introduire un compte bancaire................: \n\n");
+		printf("\t\t\t\t2. Introduire plusieurs comptes bancaires.......: \n\n");
+		printf("\t\t\t\t3. Operations...................................: \n\n");
+		printf("\t\t\t\t4. Affichage....................................: \n\n"); 
+		printf("\t\t\t\t5. Fidelisation.................................: \n\n");
 		
-		printf("\t\t\t\t0. Quitter................................... \n\n\n");
+		printf("\t\t\t\t0. Quitter......................................: \n\n\n");
 		
 		printf("\t\t\t\tentre le choix : ");
 		scanf("%d", &choix);
@@ -280,11 +280,10 @@ void des()
 				operations();		
 				exist();
 			case 4 :
-			    printf("donner votre choix :\n");
-				printf("1 . Order par ascendant \n");
-				printf("2 . Order par descendant \n");
-				printf("3 . Recherche par CIN \n");
-				printf("4 . Recherche par CIN \n");
+			    printf("\t\t\t\tdonner votre choix :\n");
+				printf("\t\t\t\t1 . Order par ascendant \n");
+				printf("\t\t\t\t2 . Order par descendant \n");
+				printf("\t\t\t\t3 . Recherche par CIN \n\t\t\t\t");
 	 			 scanf("%d", &chois);
 	 			 
 	 			 switch (chois){
@@ -297,14 +296,14 @@ void des()
 	 			case 3 :
 	 				   queen();
 	 				   break;
-	 			case 4 :
-	 				   parNom();
-	 				   break;
-	 			
+//	 			case 4 :
+//	 				   parNom();
+//	 				   break;
+//	 			
 				  }
 			    exist();
 			default :
-				printf("sortire");
+				printf("\n\n\t\t\t\tsortire");
 		}
 	
 }
