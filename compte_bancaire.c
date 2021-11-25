@@ -40,7 +40,7 @@ void ajouter()
 
 void InPscompte()
 {
-	int C /*les nombre de comte*/, i;
+	int C /*les nombre de comPte*/, i;
 	
 	system("cls");
 	
@@ -65,7 +65,7 @@ void InPscompte()
 		 nbrClt++;
        }
    
-   printf("\n\t\t\t\t\tles opération reussie \n\n ");
+   printf("\n\t\t\t\t\tles operation reussie \n\n ");
    
    
 }
@@ -124,31 +124,6 @@ void operations()
         }
 }	
 
-//void parNom()
-//{
-//	    struct compte v;
-//        int i , k ;
-//        
-//        for(i = 0 ; i < nbrClt ; i++){
-//        	
-//            for(k = 0 ; k < nbrClt - i - 1 ; k++){
-//            	
-//                if(strcmp (search[k].nom > search[k+1].nom) > 0){
-//                	
-//                    v=search[k];
-//                    search[k]=search[k+1];
-//                    search[k+1]=v;
-//
-//                }
-//
-//            }
-//        }
-//        
-//        for(i=0; i < nbrClt ;i++){
-//            printf("l'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
-//        }
-//    }
-
 
 
 
@@ -164,7 +139,9 @@ void acs()
 	         		if(search[i].montant > search[k].montant)
 	     	    	{
 		     	    	v = search[i];
+		     	    	
 		    	    	search[i] = search[k];
+		    	    	
 		    	     	search[k] = v;
 		        	}
 		       }
@@ -188,7 +165,9 @@ void des()
 	         		if(search[i].montant < search[k].montant)
 	     	    	{
 		     	    	v = search[i];
+		     	    	
 		    	    	search[i] = search[k];
+		    	    	
 		    	     	search[k] = v;
 		        	}
 		       }
@@ -220,6 +199,7 @@ void des()
 		}		 
 }
 	
+	
 //############################################# Pour return de la menu;
 
  
@@ -249,18 +229,16 @@ void des()
  void menu(){
 	int choix, i, chois;
 	
-	    printf("\t\t\t\t\t#######################################\n");
+	    printf("\n\n\t\t\t\t\t#######################################\n");
 	    printf("\t\t\t\t\t######### App Compte Bancaire #########\n");
-	    printf("\t\t\t\t\t#######################################\n\n");
+	    printf("\t\t\t\t\t#######################################\n\n\n");
 	
-		printf("\t\t\t\t\t\t\t*** Menu ***  \n\n\n");
-		printf("\t\t\t\t1. Introduire un compte bancaire................: \n\n");
-		printf("\t\t\t\t2. Introduire plusieurs comptes bancaires.......: \n\n");
-		printf("\t\t\t\t3. Operations...................................: \n\n");
-		printf("\t\t\t\t4. Affichage....................................: \n\n"); 
-		printf("\t\t\t\t5. Fidelisation.................................: \n\n");
+		printf("\t\t\t\t1. Introduire un compte bancaire.....................: \n\n\n\n");
+		printf("\t\t\t\t2. Introduire plusieurs comptes bancaires............: \n\n\n\n");
+		printf("\t\t\t\t3. Operations........................................: \n\n\n\n");
+		printf("\t\t\t\t4. Affichage.........................................: \n\n\n\n"); 
 		
-		printf("\t\t\t\t0. Quitter......................................: \n\n\n");
+		printf("\t\t\t\t0. Quitter...........................................: \n\n\n\n");
 		
 		printf("\t\t\t\tentre le choix : ");
 		scanf("%d", &choix);
@@ -296,21 +274,16 @@ void des()
 	 			case 3 :
 	 				   queen();
 	 				   break;
-//	 			case 4 :
-//	 				   parNom();
-//	 				   break;
-//	 			
 				  }
 			    exist();
+			
 			default :
-				printf("\n\n\t\t\t\tsortire");
+				printf("\n\n\t\t\t\tQuitter programme");
 		}
 	
 }
  
  
- 
-
  
  int main()
 { 
