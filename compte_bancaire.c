@@ -45,6 +45,7 @@ void InPscompte()
 	system("cls");
 	
 	printf("\n\n\t\t\t\tAjouter plusieur Compte\n\n");
+	
 	printf("\t\t\ttapper le nomber des compte : ");
 	 scanf("%d", &C);
 	
@@ -179,7 +180,7 @@ void des()
         }
     }
     
-    void queen()
+    void cherch()
 {
 	char rech [10];
 	int i;
@@ -197,6 +198,45 @@ void des()
 	        	
 			 }	 
 		}		 
+}
+
+
+
+void fedil()
+{
+	 struct compte v;
+        int i, k, f;
+        
+        	for(i = 0; i < nbrClt; i++)
+	       {
+		         for(k = i+1; k < nbrClt; k++)
+	         	{
+	         		if(search[i].montant < search[k].montant)
+	     	    	{
+		     	    	v = search[i];
+		     	    	
+		    	    	search[i] = search[k];
+		    	    	
+		    	     	search[k] = v;
+		        	}
+		       }
+        	}	
+	
+
+    		for(i=0; i < nbrClt ;i++){
+    			
+       		     printf("\t\t\t\tl'affichage par Ascendant : %s    %s    %s    %f \n\n ",search[i].nom,search[i].prenom,search[i].cin,search[i].montant);
+       		     
+               }
+            for(f = 0; f < 3; f++){
+            	 
+            	 search[f].montant += search[f].montant * 0.013;
+            	 
+            	 printf("%f\n", search[f].montant);
+            	 
+            	
+			}
+        
 }
 	
 	
@@ -237,8 +277,9 @@ void des()
 		printf("\t\t\t\t2. Introduire plusieurs comptes bancaires............: \n\n\n\n");
 		printf("\t\t\t\t3. Operations........................................: \n\n\n\n");
 		printf("\t\t\t\t4. Affichage.........................................: \n\n\n\n"); 
+		printf("\t\t\t\t5. FidElisation......................................: \n\n\n\n"); 
 		
-		printf("\t\t\t\t0. Quitter...........................................: \n\n\n\n");
+		printf("\t\t\t\tQuitter..............................................: \n\n\n\n");
 		
 		printf("\t\t\t\tentre le choix : ");
 		scanf("%d", &choix);
@@ -272,9 +313,12 @@ void des()
 	 			 		des();
 	 			 		break;
 	 			case 3 :
-	 				   queen();
+	 				   cherch();
 	 				   break;
 				  }
+			    exist();
+			case 5 : 
+			    fedil();
 			    exist();
 			
 			default :
